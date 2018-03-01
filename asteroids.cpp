@@ -48,6 +48,7 @@ const float GRAVITY = -0.2f;
 const int MAX_BULLETS = 11;
 const Flt MINIMUM_ASTEROID_SIZE = 60.0;
 
+extern void showName();
 //-----------------------------------------------------------------------------
 //Setup timers
 const double OOBILLION = 1.0 / 1e9;
@@ -288,6 +289,8 @@ void render();
 //==========================================================================
 // M A I N
 //==========================================================================
+
+
 int main()
 {
 	logOpen();
@@ -831,7 +834,9 @@ void render()
 		glEnd();
 		++b;
 	}
+	showName();
 }
+
 
 
 
