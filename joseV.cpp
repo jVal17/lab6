@@ -26,13 +26,36 @@ using namespace std;
 #include "fonts.h"
 
 void showName();
+void drawBox();
 
 extern void showName() {
 	Rect r; 
-	r.bot =  65;
-	r.left = 65; 
+	r.bot =  100;
+	r.left = 100; 
 	r.center = 0;
 	ggprint8b(&r, 16, 0x00ffff00, "Jose Valenzuela");
 	glEnd();
 }
 
+extern void drawBox(int x, int y) {
+	static float angel = 0.0;
+	
+	glColor3ub(255, 0, 0);
+	glPushMatrix();
+	glTranslatef(x, y, 0.0);
+	glRotatef(angel, 0.0f, 0.0f, 1.0f);
+	glTranslatef(-50.0, -50.0, 0.0);
+	angel = angel + 2.5;
+	glBegin(GL_QUADS);
+		glVertex2f(0, 0);
+		glVertex2f(0, 100);
+		glVertex2f(100, 100);
+		glVertex2f(100, 0);
+	glEnd();
+	Rect r;
+	r.bot= 50;
+	r.left = 50;
+	r.center = 1;
+	ggprint8b(&r, 16, 0x00ffff00, "Jose Valenzuela");
+	glPopMatrix();
+}

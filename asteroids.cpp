@@ -48,6 +48,7 @@ const float GRAVITY = -0.2f;
 const int MAX_BULLETS = 11;
 const Flt MINIMUM_ASTEROID_SIZE = 60.0;
 
+extern void drawBox(int, int);
 extern void showName();
 //-----------------------------------------------------------------------------
 //Setup timers
@@ -752,6 +753,8 @@ void render()
 	//
 	//-------------
 	//Draw the ship
+	drawBox(gl.xres/2, gl.yres/2);
+	showName();
 	glColor3fv(g.ship.color);
 	glPushMatrix();
 	glTranslatef(g.ship.pos[0], g.ship.pos[1], g.ship.pos[2]);
@@ -834,7 +837,6 @@ void render()
 		glEnd();
 		++b;
 	}
-	showName();
 }
 
 
